@@ -7,7 +7,9 @@ import com.salvo.esempio.service.LibroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.sql.Date;
 import java.util.ArrayList;
@@ -23,14 +25,10 @@ public class MainTest {
     GiocoService giocoService;
 
 
-    @GetMapping(value = "libri")
-    public String es(){
-      //  List<Libro> lista;
-       // lista =libroService.lista();
-      //  for(Libro l : lista)
-           // System.out.println(l.toString());
-        //libroService.eliminaLibro((long) 1);
+    @GetMapping("/libri")
+    public String es(Model mod){
 
+        mod.addAttribute("elencoLibri",giocoService.listaGiochi());
         return "libri";
     }
     @GetMapping(value = "gioco")

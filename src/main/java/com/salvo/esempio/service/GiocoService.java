@@ -36,13 +36,12 @@ public class GiocoService {
     }
 
     public void inserisciModificaGioco(Gioco g){
-
-                    giocoRepository.saveAndFlush(g);
+            giocoRepository.saveAndFlush(g);
         }
 
 
-    public List<Gioco>trovaGiochiDaId(Long id){
-        return giocoRepository.findAllById(Collections.singleton(id));
+    public Gioco trovaGiocoDaId(Long id){
+        return giocoRepository.findById(id).orElse(null);
     }
 
     public void eliminaGioco(Long id){

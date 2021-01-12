@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -35,17 +36,13 @@ public class GiocoService {
     }
 
     public void inserisciModificaGioco(Gioco g){
-        for(Gioco b : giocoRepository.findAll()){
-            if(g.getId()== b.getId()){
-                giocoRepository.saveAndFlush(g);
-            }
-            else
-                giocoRepository.save(g);
-        }
-    }
 
-    public Gioco prendiGioco(Long id){
-        return giocoRepository.findById(id).orElse(null);
+                    giocoRepository.saveAndFlush(g);
+        }
+
+
+    public List<Gioco>trovaGiochiDaId(Long id){
+        return giocoRepository.findAllById(Collections.singleton(id));
     }
 
     public void eliminaGioco(Long id){

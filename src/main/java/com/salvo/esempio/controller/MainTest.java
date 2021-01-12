@@ -42,14 +42,16 @@ public class MainTest {
     @PostMapping(value = "updateGioco")
     @ResponseBody
     public void modGioco(Gioco g){
+
+
         g = new Gioco();
-        g.setId(1L);
+        g.setId(6L);
         g.setDate(Date.valueOf("2020-10-10"));
         g.setTitolo("Pinoooo");
         g.setPiattaforma("ps9");
         g.setPosizioneCasa("sini");
         g.setPrestato(false);
-        g.setProprietarioOggetto("Sempre io");
+        g.setProprietarioOggetto("ffdvfdvfv ioiiiiiiii");
         g.setCasaSviluppo("nS");
         giocoService.inserisciModificaGioco(g);
     }

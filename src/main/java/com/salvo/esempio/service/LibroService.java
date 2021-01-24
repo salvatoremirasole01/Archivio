@@ -15,8 +15,8 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 import java.util.List;
 public class LibroService implements IService<Libro> {
-    @Autowired
 
+    @Autowired
     public LibroRepository libroRepository;
 
 

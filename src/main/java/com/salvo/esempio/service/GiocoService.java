@@ -35,6 +35,7 @@ public class GiocoService implements IService<Gioco> {
     }
 
 
+    @Override
     public Gioco cercaPertitolo(String titoloGioco){
         return (Gioco) giocoRepository.findByTitolo(titoloGioco);
     }

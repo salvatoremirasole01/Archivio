@@ -5,7 +5,9 @@ import com.salvo.esempio.entities.Libro;
 import com.salvo.esempio.service.GiocoService;
 import com.salvo.esempio.service.LibroService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -19,23 +21,26 @@ import java.util.List;
 @RequestMapping("/")
 public class MainTest {
 
-   @Autowired
-   LibroService libroService;
-   @Autowired
-    GiocoService giocoService;
+    @Autowired
+    @Qualifier("libro")
+    IService libroService;
 
+
+    @Autowired
+    @Qualifier("gioco")
+    IService giocoService;
 
     @GetMapping("/libri")
     public String es(Model mod){
 
-        mod.addAttribute("elencoLibri",giocoService.listaGiochi());
+        mod.addAttribute("elencoLibri",libroService.listaOggetti());
         return "libri";
     }
-    @GetMapping(value = "gioco")
-    @ResponseBody
-    public Gioco giocoPerTitolo(String titolo){
-        return giocoService.cercaPertitolo(titolo);
-    }
+    //@GetMapping(value = "gioco")
+    //@ResponseBody
+   // public Gioco giocoPerTitolo(String titolo){
+       // return giocoService.cercaPertitolo(titolo);
+    //}
 
     @PostMapping(value = "updateGioco")
     @ResponseBody
@@ -51,7 +56,7 @@ public class MainTest {
         g.setPrestato(false);
         g.setProprietarioOggetto("ffdvfdvfv ioiiiiiiii");
         g.setCasaSviluppo("nS");
-        giocoService.inserisciModificaGioco(g);
+       //giocoService.inserisciModificaGioco(g);
     }
 
 }

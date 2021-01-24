@@ -5,14 +5,17 @@ import com.salvo.esempio.entities.Gioco;
 import com.salvo.esempio.entities.Libro;
 import com.salvo.esempio.repositories.GiocoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-@Service
-public class GiocoService implements IService {
+public class GiocoService implements IService<Gioco> {
     @Autowired
     GiocoRepository giocoRepository;
 
@@ -23,30 +26,28 @@ public class GiocoService implements IService {
 
     @Override
     public List<Gioco> listaOggetti(){
-
-       // elencoCacheGiochi.clear();
-       // elencoCacheGiochi = new ArrayList<>();
-       // elencoCacheGiochi.addAll((List<Gioco>) giocoRepository.findAll());
-       // return elencoCacheGiochi;
         return (List<Gioco>) giocoRepository.findAll();
     }
 
+    @Override
+    public void inserisciModificaOggetto(Gioco g) {
+        giocoRepository.saveAndFlush(g);
+    }
+
+
     public Gioco cercaPertitolo(String titoloGioco){
-        return giocoRepository.findByTitolo(titoloGioco);
+        return (Gioco) giocoRepository.findByTitolo(titoloGioco);
 
 
     }
 
-    public void inserisciModificaGioco(Gioco g){
-            giocoRepository.saveAndFlush(g);
-        }
-
-
-    public Gioco trovaGiocoDaId(Long id){
+    @Override
+    public Gioco prendiOggetto(Long id){
         return giocoRepository.findById(id).orElse(null);
     }
 
-    public void eliminaGioco(Long id){
+    @Override
+    public void eliminaOggetto(Long id){
         for (Gioco  g : giocoRepository.findAll()){
             if(id == g.getId()){
                 giocoRepository.delete(g);

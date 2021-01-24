@@ -13,16 +13,16 @@ import java.util.List;
 public class Gestore {
 
     public List<Object>lista;
-    @Autowired
-    LibroService libroService;
-    @Autowired
-    GiocoService giocoService;
+  //  @Autowired
+  //  LibroService libroService;
+  //  @Autowired
+  //  GiocoService giocoService;
 
 
     public Gestore() {
-        this.lista = new ArrayList<>();
-        lista.addAll(libroService.lista());
-        lista.addAll(giocoService.listaGiochi());
+      //  this.lista = new ArrayList<>();
+      //  lista.addAll(libroService.lista());
+       // lista.addAll(giocoService.listaGiochi());
 
 
     }

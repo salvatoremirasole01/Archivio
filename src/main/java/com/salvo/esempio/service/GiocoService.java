@@ -1,5 +1,6 @@
 package com.salvo.esempio.service;
 
+import com.salvo.esempio.controller.IService;
 import com.salvo.esempio.entities.Gioco;
 import com.salvo.esempio.entities.Libro;
 import com.salvo.esempio.repositories.GiocoRepository;
@@ -11,7 +12,7 @@ import java.util.Collections;
 import java.util.List;
 
 @Service
-public class GiocoService {
+public class GiocoService implements IService {
     @Autowired
     GiocoRepository giocoRepository;
 
@@ -20,7 +21,8 @@ public class GiocoService {
 
 
 
-    public List<Gioco> listaGiochi(){
+    @Override
+    public List<Gioco> listaOggetti(){
 
        // elencoCacheGiochi.clear();
        // elencoCacheGiochi = new ArrayList<>();

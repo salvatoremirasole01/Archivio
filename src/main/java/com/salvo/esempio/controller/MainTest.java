@@ -1,21 +1,14 @@
 package com.salvo.esempio.controller;
 
 import com.salvo.esempio.entities.Gioco;
-import com.salvo.esempio.entities.Libro;
-import com.salvo.esempio.service.GiocoService;
-import com.salvo.esempio.service.LibroService;
+import com.salvo.esempio.service.IService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.sql.Date;
-import java.util.ArrayList;
-import java.util.List;
 
 @Controller
 @RequestMapping("/")

@@ -1,4 +1,4 @@
-package com.salvo.esempio.controller;
+package com.salvo.esempio.service;
 
 import com.salvo.esempio.entities.Gioco;
 import com.salvo.esempio.entities.Libro;
@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 //@Service qui non e' obbligatoria perche ho costruito dei bean manualmente
+@Service
 public interface IService<T>{
     List<T> listaOggetti();
     void inserisciModificaOggetto(T l);

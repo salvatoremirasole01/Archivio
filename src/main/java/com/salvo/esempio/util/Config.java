@@ -1,6 +1,6 @@
 package com.salvo.esempio.util;
 
-import com.salvo.esempio.controller.IService;
+import com.salvo.esempio.service.IService;
 import com.salvo.esempio.service.GiocoService;
 import com.salvo.esempio.service.LibroService;
 import org.springframework.context.annotation.Bean;

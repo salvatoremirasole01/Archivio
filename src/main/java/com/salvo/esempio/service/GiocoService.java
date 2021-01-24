@@ -1,18 +1,9 @@
 package com.salvo.esempio.service;
 
-import com.salvo.esempio.controller.IService;
 import com.salvo.esempio.entities.Gioco;
-import com.salvo.esempio.entities.Libro;
 import com.salvo.esempio.repositories.GiocoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Primary;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class GiocoService implements IService<Gioco> {

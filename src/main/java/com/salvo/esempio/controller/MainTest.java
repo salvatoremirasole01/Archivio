@@ -32,7 +32,6 @@ public class MainTest {
 
     @GetMapping("/libri")
     public String es(Model mod){
-
         mod.addAttribute("elencoLibri",libroService.listaOggetti());
         return "libri";
     }
@@ -56,7 +55,7 @@ public class MainTest {
         g.setPrestato(false);
         g.setProprietarioOggetto("ffdvfdvfv ioiiiiiiii");
         g.setCasaSviluppo("nS");
-       //giocoService.inserisciModificaGioco(g);
+        giocoService.inserisciModificaOggetto(g);
     }
 
 }

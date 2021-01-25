@@ -14,20 +14,13 @@ import java.sql.Date;
 @RequestMapping("/")
 public class MainTest {
 
-    @Autowired
-    @Qualifier("libro")
-    IService libroService;
 
 
     @Autowired
     @Qualifier("gioco")
     IService giocoService;
 
-    @GetMapping("/libri")
-    public String es(Model mod){
-        mod.addAttribute("elencoLibri",libroService.listaOggetti());
-        return "libri";
-    }
+
     //@GetMapping(value = "gioco")
     //@ResponseBody
    // public Gioco giocoPerTitolo(String titolo){

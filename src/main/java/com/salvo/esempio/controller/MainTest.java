@@ -27,6 +27,8 @@ public class MainTest {
        // return giocoService.cercaPertitolo(titolo);
     //}
 
+
+
     @PostMapping(value = "updateGioco")
     @ResponseBody
     public void modGioco(Gioco g){

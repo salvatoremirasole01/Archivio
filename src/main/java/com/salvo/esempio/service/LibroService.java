@@ -3,6 +3,9 @@ package com.salvo.esempio.service;
 import com.salvo.esempio.entities.Libro;
 import com.salvo.esempio.repositories.LibroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.transaction.annotation.Transactional;
+
 
 import java.util.List;
 public class LibroService implements IService<Libro> {
@@ -22,7 +25,7 @@ public class LibroService implements IService<Libro> {
     public void eliminaOggetto(Long id){
         for (Libro b : libroRepository.findAll()){
             if(id == b.getId()){
-                libroRepository.delete(b);
+                libroRepository.eliminaLibro(id);
             }
         }
     }
